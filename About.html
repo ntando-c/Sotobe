@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Sotobe Funeral Parlour</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #3a0ca3;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: #5a0ca3;
+      color: #fff;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(58, 12, 163, 0.3);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e0d8ff;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffde59;
+    }
+
+    main {
+      padding: 4rem 0;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      
+    }
+
+    .about-section {
+      background: #7a04b1;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(58, 12, 163, 0.1);
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ffffff;
+    }
+
+    .highlight {
+      color: #ffde59;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #41005a;
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    /* Mobile Navigation */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+      content: "";
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #ffde59;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        background: #3a0ca3;
+        flex-direction: column;
+        width: 200px;
+        padding: 2rem;
+        transition: right 0.3s ease;
+      }
+
+      nav ul.active {
+        right: 0;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <div class="logo">SOTOBE FUNERAL PARLOUR</div>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="About.html" class="active">About</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="Policies.html">Policies</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>About Us</h1>
+    <section class="about-section">
+      <p class="about-text">
+        At <span class="highlight">Sotobe Funeral Parlour</span>, we understand the importance of honoring your loved ones with grace and dignity.
+        With a dedicated team and years of experience, we strive to provide <span class="highlight">compassionate support</span> and professional services during times of loss.
+        <br /><br />
+        Our mission is to lighten the burden on grieving families by offering a variety of respectful funeral arrangements, including memorials, burial and cremation options,
+        and transport services.
+        <br /><br />
+        We are committed to being a pillar of support in our community, standing by your side when you need it most.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Sotobe Funeral Parlour. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

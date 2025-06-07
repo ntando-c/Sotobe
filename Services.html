@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Services - Sotobe Funeral Parlour</title>
+  <style>
+    :root {
+      --primary: #3a0ca3;
+      --accent: #ffde59;
+      --background: #ffffff;
+      --text: #3a3a3a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: var(--background);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(58, 12, 163, 0.2);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 2rem;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f0e9ff;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--accent);
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    main {
+      padding: 4rem 2rem;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+
+    .services-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .service-card {
+      background: #f8f4ff;
+      border-left: 6px solid var(--primary);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 6px rgba(58, 12, 163, 0.1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(58, 12, 163, 0.2);
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: #444;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        background: var(--primary);
+        width: 200px;
+        padding: 1.5rem;
+        transition: right 0.3s ease;
+      }
+
+      nav ul.active {
+        right: 0;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">SOTOBE FUNERAL PARLOUR</div>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Services.html" class="active">Services</a></li>
+          <li><a href="Policies.html">Policies</a></li>
+          <li><a href="Login Page.html">Login</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Our Services</h1>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Funeral Arrangements</h3>
+        <p>We help families with planning and organizing every aspect of the funeral ceremony with care and respect.</p>
+      </div>
+      <div class="service-card">
+        <h3>Burial Services</h3>
+        <p>We offer dignified burial packages, including transport, caskets, grave services, and coordination.</p>
+      </div>
+      <div class="service-card">
+        <h3>Cremation Services</h3>
+        <p>For families choosing cremation, we provide complete options including urns, permits, and dignified handling.</p>
+      </div>
+      <div class="service-card">
+        <h3>Body Transport</h3>
+        <p>We provide respectful and professional local and long-distance transportation of the deceased.</p>
+      </div>
+      <div class="service-card">
+        <h3>Memorial Programs</h3>
+        <p>Customized design and printing of obituary programs, banners, and tombstones with attention to detail.</p>
+      </div>
+      <div class="service-card">
+        <h3>Family Support</h3>
+        <p>We offer counseling, emotional support, and guidance through grief and loss with compassion.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Sotobe Funeral Parlour. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

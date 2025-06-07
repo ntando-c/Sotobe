@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sotobe Funeral Parlour</title>
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #ffffff; /* Dark Purple */
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Header and Navigation */
+    .header {
+      background-color: #57058d; /* Dark Purple */
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(58,12,163,0.3);
+      animation: slideDown 0.6s ease forwards;
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      cursor: default;
+      color: #ffffff; /* Yellow */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #ffffff; /* white */
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+      text-shadow: 0 0 3px rgba(58,12,163,0.4);
+    }
+
+    .nav-link:nth-child(1) { animation-delay: 0.2s; }
+    .nav-link:nth-child(2) { animation-delay: 0.4s; }
+    .nav-link:nth-child(3) { animation-delay: 0.6s; }
+    .nav-link:nth-child(4) { animation-delay: 0.8s; }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ffde59; /* Yellow */
+      text-shadow: 0 0 8px #ffde59;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #ffde59;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Hamburger menu for mobile */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 110;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+      width: 25px;
+      height: 3px;
+      background-color: #ffffff; /* Yellow */
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      display: block;
+      position: relative;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .nav-toggle.active .hamburger {
+      background-color: transparent;
+    }
+
+    .nav-toggle.active .hamburger::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+
+    .nav-toggle.active .hamburger::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient( #3d0092);
+      color: #ffffff; /* Dark Purple */
+      padding: 6rem 0;
+      text-align: center;
+      overflow: hidden;
+      
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+
+    .hero-content {
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background-color: #ffbb00; /* Yellow */
+      color: #3a0ca3; /* Dark Purple */
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255,222,89,0.4);
+      letter-spacing: 0.05em;
+    }
+
+    .btn-primary:hover {
+      background-color: #e6c94d;
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(230,201,77,0.6);
+    }
+
+    /* About Section */
+    .about {
+      background-color: #fff;
+      padding: 3rem 0;
+      text-align: center;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      color: #ffffff;
+      max-width: 700px;
+      margin: 2rem auto;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #3a0ca3;
+      text-shadow: 1px 1px 2px #000000aa;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      color: #4b3f72;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #3a0ca3; /* Dark Purple */
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      animation: fadeIn 1s ease forwards;
+      box-shadow: 0 -2px 8px rgba(58,12,163,0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-list {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background-color: #3a0ca3;
+        height: calc(100% - 70px);
+        width: 200px;
+        flex-direction: column;
+        padding-top: 2rem;
+        gap: 1.5rem;
+        transition: right 0.3s ease;
+      }
+      
+      .nav-list.active {
+        right: 0;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">SOTOBE FUNERAL PARLOUR</div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="Home.html" class="nav-link active">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li><a href="Services.html" class="nav-link">Services</a></li>
+          <li><a href="Policies.html" class="nav-link">Policies</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content container">
+        <h1>Compassionate Care in Difficult Times</h1>
+        <p>Your trusted partner for honoring your loved ones with dignity and respect.</p>
+        <a href="#" class="btn-primary">Learn More</a>
+      </div>
+    </section>
+
+    <section class="about container">
+      <h2>About Sotobe Funeral Parlour</h2>
+      <p>
+        We offer professional funeral services with care and compassion, supporting families in their time of need.
+        Our dedicated team ensures every detail is handled with utmost respect.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Sotobe Funeral Parlour. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+
+    navToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Policies - Sotobe Funeral Parlour</title>
+  <style>
+    :root {
+      --primary: #3a0ca3;
+      --accent: #ffde59;
+      --background: #f4f4fa;
+      --text: #333;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: var(--accent);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(58, 12, 163, 0.2);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 2rem;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f0e9ff;
+      font-weight: 500;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      z-index: 1100;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+      content: "";
+      background: var(--accent);
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      display: block;
+      border-radius: 2px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      position: absolute;
+      left: 0;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    main {
+      padding: 4rem 2rem;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .policy-list {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-bottom: 4rem;
+    }
+
+    .policy-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 2rem;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(58, 12, 163, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .policy-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(58, 12, 163, 0.15);
+    }
+
+    .policy-card h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .policy-card a {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .policy-card a:hover {
+      background-color: #29037a;
+    }
+
+    .signup-form {
+      background: #fff;
+      border: 2px dashed var(--primary);
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .signup-form h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .signup-form input, .signup-form select, .signup-form button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .signup-form button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .signup-form button:hover {
+      background-color: #29037a;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 999;
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebe5c;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        right: -100%;
+        top: 70px;
+        background: var(--primary);
+        padding: 1.5rem;
+        transition: right 0.3s ease;
+        width: 200px;
+        border-radius: 0 0 0 10px;
+      }
+
+      nav ul.active {
+        right: 0;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">SOTOBE FUNERAL PARLOUR</div>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="Home.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Services.html">Services</a></li>
+          <li><a href="Policies.html" class="active">Policies</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Funeral Policy Options</h1>
+
+    <div class="policy-list">
+      <div class="policy-card">
+        <h3>🪦 Basic Individual Plan</h3>
+        <p>Affordable coverage for a single person including transport, coffin, and a basic funeral package.</p>
+        <a href="BIP Sub Page.html">View Plan</a>
+      </div>
+      <div class="policy-card">
+        <h3>👨‍👩‍👧 Family Plan</h3>
+        <p>Cover for up to 6 family members with added support services and peace of mind.</p>
+        <a href="Family-plan.html">View Plan</a>
+      </div>
+      <div class="policy-card">
+        <h3>👵🏽 Extended Family Plan</h3>
+        <p>Cover for up to 12 family members including parents, siblings, and grandparents.</p>
+        <a href="Extended Fam.html">View Plan</a>
+      </div>
+    </div>
+
+    <section class="signup-form">
+      <h2>Sign Up for a Funeral Policy</h2>
+      <form id="policyForm">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="tel" id="phone" placeholder="Phone Number" required />
+        <input type="email" id="email" placeholder="Email Address" />
+        <select id="plan" required>
+          <option value="">Select Plan</option>
+          <option>Basic Individual</option>
+          <option>Family Plan</option>
+          <option>Extended Family</option>
+        </select>
+        <button type="submit">Submit via WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Sotobe Funeral Parlour. All rights reserved.</p>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a class="whatsapp-float" href="https://wa.me/27724307317" target="_blank">💬 Chat with us</a>
+
+  <script>
+    // Toggle nav on mobile
+    const toggle = document.getElementById("nav-toggle");
+    const menu = document.getElementById("nav-menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+
+    // WhatsApp form submission
+    const form = document.getElementById('policyForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const email = document.getElementById("email").value;
+      const plan = document.getElementById("plan").value;
+
+      const message = `Hello Sotobe Funeral Parlour,%0AI'm interested in the *${plan}* policy.%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}`;
+      const whatsappLink = `https://wa.me/27724307317?text=${message}`;
+      window.open(whatsappLink, '_blank');
+    });
+  </script>
+</body>
+</html>
